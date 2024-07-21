@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+/* Text and Body Styling */
+
+body {
+    background-color: #ECADBE;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-variation-settings:
+      "wdth" 100;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+    background-color: #ECADBE;
+}
+
+p {
+    font-size: 20px;
+    font-weight: bolder;
+    margin-bottom: 30px;
+    color: #f6f6f6;
+}
+
+h1, h2 {
+    color: #F6F6F6;
+}
+
+.sampleCode {
+    background-image: linear-gradient(
+        rgba(163, 120, 132, 1) 0%,
+        rgba(163, 120, 132, 0.3) 100%
+    );
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    overflow: hidden;
+    height: 80%;
+    border: 3px solid #e48ba3;
+}
+
+.code {
+    white-space: pre-wrap;
+    font-size: 16px;
+    color: #f3d9e0;
+    margin: 0 auto;
+    margin-top: 10px;
+    flex: 1;
+    -webkit-user-select: all;
+    -moz-user-select: all;
+    -ms-user-select: all;
+    user-select: all; 
+}
+
+/* Header Styling */
+
+.header {
+    margin: 0 auto;
+    text-align: center;
+    width: 800px;
+}
+
+.borderButton {
+    background: none;
+    border: 0;
+    box-sizing: border-box;
+    margin: 0.5em;
+    color: #f6f6f6;
+    font-size: inherit;
+    font-weight: 700;
+    position: relative;
+    vertical-align: middle;
+    transition: border-bottom-color 0.25s, color 0.25s; /* Transition for border and text color */
+}
+
+.borderButton::before,
+.borderButton::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    height: 3px;
+    width: 0;
+    background-color: #D7335E; /* Border color */
+    box-shadow: 0 0 10px rgba(215, 51, 94, 0.5); /* Shadow color and size */
+    transition: width 0.5s ease, box-shadow 0.5s ease; /* Transition for width and shadow */
+}
+
+.borderButton::before {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.borderButton::after {
+    right: 50%;
+    transform: translateX(50%);
+}
+
+.borderButton:hover::before,
+.borderButton:hover::after {
+    width: 100%;
+}
+
+.borderButton:hover {
+    color: #D7335E;
+    transition: color 0.25s;
+}
+
+/* Grid Styling */
+
+#snippetGrid {
+    display: grid;
+    height: 70vh;
+    margin: 0 5%;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+    grid-template-areas: 
+    "flexRow flexColumn gridLayout"
+    "linGradients tranGlow overlayCard";
+    gap: 10px;
+    flex: 1;
+}
+
+#flexRow {
+    grid-template-areas: flexRow;
+}
+
+#flexColumn {
+    grid-template-areas: flexColumn;
+}
+
+#gridLayout {
+    grid-template-areas: gridLayout;
+}
+
+#linGradients {
+    grid-template-areas: linGradients;
+}
+
+#tranGlow {
+    grid-template-areas: tranGlow;
+}
+
+#overlayCard {
+    grid-template-areas: overlayCard;
+}
+
+/* Grid Content Styling */
+
+.snippetGridArea {
+    border: 5px dotted #f6f6f6;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 10px;
+}
+
+.heading {
+    text-align: center;
+    border: 5px solid #f6f6f6;
+    background-color: #ECADBE;
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+    margin-top: -20px;
+}
+
+.explination {
+    margin-top: 15px;
+    color: #f6f6f6;
+    font-weight: bolder;
+}
+
+.footer {
+    color: #F6F6F6;
+    font-size: 30px;
+    font-weight: bolder;
+    text-align: center;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    #snippetGrid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, auto);
+        grid-template-areas: 
+        "flexRow flexColumn" 
+        "gridLayout linGradients" 
+        "tranGlow overlayCard";
+        align-content: center;
+    }
+
+    .header {
+        width: auto;
+        margin: 10px;
+    }
+}
+
+@media (max-width: 767px) {
+    #snippetGrid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6, auto);
+        grid-template-areas: 
+        "flexRow" 
+        "flexColumn" 
+        "gridLayout" 
+        "linGradients" 
+        "tranGlow" 
+        "overlayCard";
+        align-content: center;
+    }
+
+    .header {
+        width: auto;
+        margin: 10px;
+    }
+}
